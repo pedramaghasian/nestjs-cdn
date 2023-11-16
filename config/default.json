@@ -7,10 +7,12 @@
       "title": "ParsPack Cdn API",
       "version": "1.0.0"
     },
-    "database": {
-      "host": "localhost",
-      "port": 27017,
-      "name": "mydatabase"
+    "auth": {
+      "secret": "your-secret-key",
+      "expiresIn": "1h"
+    },
+    "mongodb": {
+      "uri": "mongodb://admin:admin@localhost:27017/"
     }
+    
   }
-  
