@@ -1,0 +1,16 @@
+{
+    "app": {
+      "port": 3000,
+      "environment": "development"
+    },
+    "swagger": {
+      "title": "ParsPack Cdn API",
+      "version": "1.0.0"
+    },
+    "database": {
+      "host": "localhost",
+      "port": 27017,
+      "name": "mydatabase"
+    }
+  }
+  
