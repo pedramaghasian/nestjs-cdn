@@ -1,73 +1,43 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+## CDM Project - Modular Monolithic Architecture with NestJS
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Overview
+The **CDM** (Create, Authenticate, Minify) project is a simple implementation following a **modular monolithic architecture** with a **clean architecture** approach. The project is built using the **NestJS framework**, and core services are well-documented using **Swagger**. Three main services are implemented: User, Auth (JWT-based login), and Minification.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Services
 
-## Description
+1. **User Service**
+The User service allows the creation of user entities. It serves as the foundation for user management within the system.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+2. **Auth Service**
+The Auth service provides secure user authentication using JSON Web Tokens (JWT). Users can log in securely, and the service manages the authentication tokens for secure communication within the system.
 
-## Installation
+3. **Minification Service**
+The Minification service is responsible for handling CSS/JS files. It includes the following features:
 
-```bash
-$ npm install
-```
+- Upload CSS/JS Files
+Users can upload CSS/JS files, and the system saves them to a preconfigured path.
+Files are stored in the path: "/opt/username". If the path doesn't exist, it is created.
+If a file with the same name already exists, it will be overwritten by the new version.
 
-## Running the app
+- Minification of CSS/JS
+Users can request minification of CSS/JS files during the upload process.
+The system measures memory and time spent on minification for each file and logs these metrics in the database.
+File Details
+Users can retrieve a list of files per user with detailed information.
+File details include size, creation date, file type, duration of minification, and memory consumption during minification.
 
-```bash
-# development
-$ npm run start
+## Web Server (Openresty)
 
-# watch mode
-$ npm run start:dev
+The project includes a web server based on Openresty, serving as a reverse proxy in front of the minification subsystem. Every API call to the minification subsystem is routed through Openresty, which is built on Nginx. The behavior of the web server can be customized using the LUA language.
 
-# production mode
-$ npm run start:prod
-```
+## Installation Guide
 
-## Test
+**Dockerized Setup**
 
-```bash
-# unit tests
-$ npm run test
+The project is containerized with Docker, allowing for easy deployment. You can run the entire system using Docker Compose:
 
-# e2e tests
-$ npm run test:e2e
+`docker-compose up`
 
-# test coverage
-$ npm run test:cov
-```
+- This command starts all the services, including the NestJS application, MongoDB, and the Openresty-based web server.
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+- Feel free to explore and enhance the functionalities of the CDM project!
