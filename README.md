@@ -36,7 +36,10 @@ The project includes a web server based on Openresty, serving as a reverse proxy
 
 The project is containerized with Docker, allowing for easy deployment. You can run the entire system using Docker Compose:
 
-`docker-compose up`
+1. `docker-compose up`
+2. swagger : `http://localhost:3000/swagger`
+3. webServer run at : `http://localhost:80`
+
 
 - This command starts all the services, including the NestJS application, MongoDB, and the Openresty-based web server.
 
