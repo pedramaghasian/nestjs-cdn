@@ -6,8 +6,6 @@ import { UserRepository } from '../../infrastructure/repositories/user.repositor
 export class UserService {
   constructor(private userRepository: UserRepository) {}
 
-  private readonly users: IUser[] = [];
-
   async findByUsername(username: string): Promise<IUser | undefined> {
     return this.userRepository.findByUsername(username);
   }

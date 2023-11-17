@@ -12,7 +12,7 @@
       "expiresIn": "1h"
     },
     "mongodb": {
-      "uri": "mongodb://admin:admin@localhost:27017/"
+      "uri": "mongodb://admin:admin@my-mongo:27017/"
     }
     
   }
