@@ -1,8 +1,8 @@
 {
-  "name": "com.parspack.cloud.svc",
+  "name": "nestjs-cdn",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "pedram.aghasian@yahoo.com",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
